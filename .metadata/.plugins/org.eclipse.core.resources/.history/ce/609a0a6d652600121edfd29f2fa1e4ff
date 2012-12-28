@@ -1,0 +1,68 @@
+/**
+ * za.co.coach.bluelabel.client<br>
+ * 
+ * <p><b>Title:</b> Client<br>
+ * <b>Description:</b> <br>
+ * <b>Copyright:</b> Copyright (c) 2012<br>
+ * @author Kumbirai 'Coach' Mundangepfupfu
+ * @date 04 Nov 2012 11:52:07 AM
+ */
+package za.co.coach.bluelabel.client;
+
+import java.awt.GraphicsConfiguration;
+import java.awt.HeadlessException;
+
+import javax.swing.JFrame;
+
+/**
+ * <p><b>Purpose:</b><br>
+ * <br>
+ *
+ * Copyright Notice<br>
+ * ================<br>
+ * This file contains proprietary information.
+ * Copying or reproduction without prior written approval is prohibited.<br>
+ * Copyright (c) 2012<br>
+ * 
+ * <p><b>Title:</b> Client<br>
+ * <b>Description:</b> </p>
+ *
+ * @author Kumbirai 'Coach' Mundangepfupfu<br>
+ * @date 04 Nov 2012 11:52:07 AM<br>
+ * @version 1.0<br>
+ *
+ * <b>Revision:</b>
+ *					
+ */
+public class Client extends JFrame {
+
+	/**
+	 * @throws HeadlessException
+	 */
+	public Client() throws HeadlessException {
+	}
+
+	/**
+	 * @param gc
+	 */
+	public Client(GraphicsConfiguration gc) {
+		super(gc);
+	}
+
+	/**
+	 * @param title
+	 * @throws HeadlessException
+	 */
+	public Client(String title) throws HeadlessException {
+		super(title);
+	}
+
+	/**
+	 * @param title
+	 * @param gc
+	 */
+	public Client(String title, GraphicsConfiguration gc) {
+		super(title, gc);
+	}
+
+}

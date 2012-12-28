@@ -1,0 +1,47 @@
+/**
+ * za.co.coach.bluelabel.entities<br>
+ * 
+ * <p><b>Title:</b> Person<br>
+ * <b>Description:</b> <br>
+ * <b>Copyright:</b> Copyright (c) 2012<br>
+ * @author Kumbirai 'Coach' Mundangepfupfu
+ * @date 04 Nov 2012 12:39:42 PM
+ */
+package za.co.coach.bluelabel.entities;
+
+/**
+ * <p>
+ * <b>Purpose:</b><br>
+ * <br>
+ * 
+ * Copyright Notice<br>
+ * ================<br>
+ * This file contains proprietary information. Copying or reproduction without
+ * prior written approval is prohibited.<br>
+ * Copyright (c) 2012<br>
+ * 
+ * <p>
+ * <b>Title:</b> Person<br>
+ * <b>Description:</b>
+ * </p>
+ * 
+ * @author Kumbirai 'Coach' Mundangepfupfu<br>
+ * @date 04 Nov 2012 12:39:42 PM<br>
+ * @version 1.0<br>
+ * 
+ *          <b>Revision:</b>
+ * 
+ */
+public class Person {
+	private int addressID;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String phoneNumber;
+
+	/**
+	 * 
+	 */
+	public Person() {
+	}
+}

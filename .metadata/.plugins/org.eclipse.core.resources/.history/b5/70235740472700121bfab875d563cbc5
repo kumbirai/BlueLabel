@@ -1,0 +1,162 @@
+/**
+ * za.co.coach.bluelabel.client.ui<br>
+ * 
+ * <p><b>Title:</b> ClientMain<br>
+ * <b>Description:</b> <br>
+ * <b>Copyright:</b> Copyright (c) 2012<br>
+ * @author Kumbirai 'Coach' Mundangepfupfu
+ * @date 04 Nov 2012 12:25:13 PM
+ */
+package za.co.coach.bluelabel.client.ui;
+
+import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.SceneBuilder;
+import javafx.scene.control.Label;
+import javafx.scene.control.LabelBuilder;
+import javafx.scene.control.TableColumnBuilder;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TableViewBuilder;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPaneBuilder;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.FlowPaneBuilder;
+import javafx.scene.layout.HBoxBuilder;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextBuilder;
+import javafx.stage.Stage;
+import za.co.coach.bluelabel.client.model.ClientMainModel;
+import za.co.coach.bluelabel.client.model.PersonModel;
+
+/**
+ * <p><b>Purpose:</b><br>
+ * <br>
+ *
+ * Copyright Notice<br>
+ * ================<br>
+ * This file contains proprietary information.
+ * Copying or reproduction without prior written approval is prohibited.<br>
+ * Copyright (c) 2012<br>
+ * 
+ * <p><b>Title:</b> ClientMain<br>
+ * <b>Description:</b> </p>
+ *
+ * @author Kumbirai 'Coach' Mundangepfupfu<br>
+ * @date 04 Nov 2012 12:25:13 PM<br>
+ * @version 1.0<br>
+ *
+ * <b>Revision:</b>
+ *					
+ */
+public class ClientMain extends Application {
+	Stage stage;
+	ClientMainModel model = new ClientMainModel();
+	PersonModel personModel = new PersonModel();
+
+	/**
+	 * @author Kumbirai 'Coach' Mundangepfupfu - 04 Nov 2012
+	 * 
+	 * main
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+
+	/* (non-Javadoc)
+	 * @see javafx.application.Application#start(javafx.stage.Stage)
+	 */
+	@Override
+	public void start(final Stage primaryStage) throws Exception {
+		stage = primaryStage;
+		Scene scene = SceneBuilder.create().width(800).height(600).stylesheets(ClientMain.class.getResource("clientMain.css").toExternalForm())
+				.root(BorderPaneBuilder.create().top(createContactNode()).center(createTableNode()).build()).build();
+
+		stage.setScene(scene);
+		stage.setTitle("Client App");
+		stage.show();
+	}
+
+	Node createContactNode() {
+		Text textFirstName;
+		Text textSurname;
+		Text textEmail;
+		Text textPhoneNumber;
+		Label labelFirstName;
+		Label labelSurname;
+		Label labelEmail;
+		Label labelPhoneNumber;
+		FlowPane pane = FlowPaneBuilder
+				.create()
+				.layoutX(20)
+				.layoutY(40)
+				.padding(new Insets(0, 20, 40, 0))
+				.orientation(Orientation.VERTICAL)
+				.vgap(10)
+				.hgap(20)
+				.columnHalignment(HPos.LEFT)
+				.children(
+						HBoxBuilder
+								.create()
+								.spacing(10)
+								.children(labelFirstName = LabelBuilder.create().id("labelFirstName").build(),
+										textFirstName = TextBuilder.create().styleClass("emphasized-text").build()).build(),
+						HBoxBuilder
+								.create()
+								.spacing(10)
+								.children(labelSurname = LabelBuilder.create().id("labelSurname").build(),
+										textSurname = TextBuilder.create().styleClass("emphasized-text").build()).build(),
+						HBoxBuilder
+								.create()
+								.spacing(10)
+								.children(labelEmail = LabelBuilder.create().id("labelEmail").build(),
+										textEmail = TextBuilder.create().styleClass("emphasized-text").build()).build(),
+						HBoxBuilder
+								.create()
+								.spacing(10)
+								.children(labelPhoneNumber = LabelBuilder.create().id("labelPhoneNumber").build(),
+										textPhoneNumber = TextBuilder.create().styleClass("emphasized-text").build()).build()).build();
+
+		labelFirstName.textProperty().bind(new SimpleStringProperty("First Name: "));
+		textFirstName.textProperty().bind(personModel.firstNameProperty());
+
+		labelSurname.textProperty().bind(new SimpleStringProperty("Surname: "));
+		textSurname.textProperty().bind(personModel.firstNameProperty());
+
+		labelEmail.textProperty().bind(new SimpleStringProperty("Email: "));
+		textEmail.textProperty().bind(personModel.firstNameProperty());
+
+		labelPhoneNumber.textProperty().bind(new SimpleStringProperty("Phonenumber: "));
+		textPhoneNumber.textProperty().bind(personModel.firstNameProperty());
+
+		return pane;
+	}
+
+	@SuppressWarnings("unchecked")
+	Node createTableNode() {
+		TableView table = TableViewBuilder
+				.create()
+				.columns(TableColumnBuilder.create().text("First Name").cellValueFactory(new PropertyValueFactory("firstName")).prefWidth(180).build(),
+						TableColumnBuilder.create().text("Last Name").cellValueFactory(new PropertyValueFactory("lastName")).prefWidth(180).build(),
+						TableColumnBuilder.create().text("Email Address").cellValueFactory(new PropertyValueFactory("email")).prefWidth(150).build(),
+						TableColumnBuilder.create().text("Phone Number").cellValueFactory(new PropertyValueFactory("phoneNumber")).prefWidth(150).build())
+				.items(model.getPhoneEntries()).build();
+
+		table.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+			@Override
+			public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+				personModel = (PersonModel) newValue;
+				System.out.println(personModel + " chosen in TableView");
+			}
+		});
+		return table;
+	}
+}

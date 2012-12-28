@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Fri Dec 28 16:30:17 CAT 2012:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-013b-e1eb-ae3e-000000b013f8 
+on database directory C:\Code\BlueLabel\Server\AddressBook  with class loader sun.misc.Launcher$AppClassLoader@197d257 
+Loaded from file:/C:/Code/BlueLabel/Server/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_10-b18
+user.dir=C:\Code\BlueLabel\Server
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

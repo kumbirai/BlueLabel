@@ -1,0 +1,17 @@
+.header {
+    -fx-padding: 20;
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, yellow 0%, orange 100%);
+    -fx-text-fill: white;
+}
+
+.header .title {
+    -fx-font: 22pt "Tahoma Bold";
+}
+
+.header .tag-line {
+    -fx-font: 14pt "Tahoma Bold";
+}
+
+.body {
+    -fx-padding: 20;
+}

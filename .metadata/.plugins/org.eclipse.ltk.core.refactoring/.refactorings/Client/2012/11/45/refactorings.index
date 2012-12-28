@@ -1,0 +1,10 @@
+1352048109796	Rename field 'chatServer'
+1352101542906	Extract constant 'RESULT'
+1352101554796	Extract constant 'TARGET'
+1352112668156	Rename type 'Person'
+1352114476187	Rename resource 'starterApp.css'
+1352052471375	Rename type 'ContactMain'
+1352052488921	Rename type 'ContactMainFactory'
+1352052643546	Delete elements
+1352053038484	Rename compilation unit 'ContactDetailView.java'
+1352057982437	Move file
